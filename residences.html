@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Signature Residences Abuja | saas construct</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #c6a15b;
+            --gold-light: #dbb47a;
+            --navy: #0a1a2b;
+            --navy-light: #1e3a5f;
+            --cream: #faf9f7;
+            --charcoal: #2c2c2c;
+            --gray: #6b6b6b;
+            --gray-light: #e9e5de;
+            --light: #ffffff;
+            --shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+            --shadow-hover: 0 40px 80px rgba(0, 0, 0, 0.18);
+            --transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 32px;
+            background-color: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        .btn-outline {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 26, 43, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+        }
+        .logo span { color: var(--gold); font-style: italic; }
+        nav ul { display: flex; list-style: none; gap: 40px; }
+        nav ul li a { text-decoration: none; color: white; font-weight: 400; font-size: 0.85rem; transition: var(--transition); text-transform: uppercase; letter-spacing: 0.1em; position: relative; padding: 4px 0; }
+        nav ul li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s ease; }
+        nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; background: none; border: none; color: white; cursor: pointer; }
+
+        /* Page Hero */
+        .page-hero {
+            height: 65vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, rgba(10,26,43,0.75), rgba(10,26,43,0.6)), url('residence-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+            position: relative;
+        }
+        .page-hero h1 { 
+            font-size: 4rem; 
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        .page-hero p { 
+            font-size: 1.1rem; 
+            opacity: 0.9; 
+            max-width: 550px; 
+            margin: 0 auto; 
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Residence Cards Grid */
+        .residences-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .residence-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .residence-card:nth-child(1) { animation-delay: 0.1s; }
+        .residence-card:nth-child(2) { animation-delay: 0.2s; }
+        .residence-card:nth-child(3) { animation-delay: 0.3s; }
+        .residence-card:nth-child(4) { animation-delay: 0.4s; }
+        .residence-card:nth-child(5) { animation-delay: 0.5s; }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .residence-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+        }
+        .card-image {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: #e9e5de;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        .residence-card:hover .card-image img {
+            transform: scale(1.08);
+        }
+        .card-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 6px 16px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            border-radius: 30px;
+            z-index: 2;
+        }
+        .card-content {
+            padding: 30px;
+        }
+        .card-content h3 {
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+        .card-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .card-meta {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        .card-meta i { color: var(--gold); }
+        .card-description {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 0;
+        }
+        .feature-tag {
+            background: rgba(198,161,91,0.1);
+            color: var(--gold);
+            padding: 5px 12px;
+            font-size: 0.7rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Featured Residence Section */
+        .featured-residence {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 100px 0;
+        }
+        .featured-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .featured-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            background: #2c3e2f;
+        }
+        .featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .featured-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        .featured-content p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .featured-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 35px;
+        }
+        .featured-stat h4 {
+            font-size: 2rem;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .featured-stat p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--cream);
+            text-align: center;
+            padding: 80px 0;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--gray);
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Popup Modal Styles - kept for legacy but main CTA now links to index.html */
+        .popup-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .popup-content {
+            position: relative;
+            max-width: 550px;
+            width: 90%;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: slideUp 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .popup-header {
+            background: var(--navy);
+            color: white;
+            padding: 25px 30px;
+            position: relative;
+            text-align: center;
+        }
+        .popup-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--gold);
+        }
+        .popup-header p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+        .close-popup {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .close-popup:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+        .popup-form {
+            padding: 35px 30px;
+            background: var(--cream);
+        }
+        .popup-form .form-group {
+            margin-bottom: 20px;
+        }
+        .popup-form .form-group input,
+        .popup-form .form-group select,
+        .popup-form .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            background: white;
+            transition: var(--transition);
+        }
+        .popup-form .form-group input:focus,
+        .popup-form .form-group select:focus,
+        .popup-form .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(198,161,91,0.1);
+        }
+        .popup-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .popup-form button {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .popup-status {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a1a2b, #1e3a5f);
+            color: white;
+            padding: 60px 0 25px;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 45px;
+        }
+        .footer-logo {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .footer-logo span { color: var(--gold); }
+        .footer-about p { color: rgba(255,255,255,0.6); line-height: 1.6; font-size: 0.85rem; }
+        .footer-links h4 { font-size: 1rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; transition: all 0.3s ease; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--gold); padding-left: 5px; }
+        .footer-bottom { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.75rem; }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            z-index: 100;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.08); background: #128C7E; }
+
+        @media (max-width: 1100px) { .container { padding: 0 40px; } }
+        @media (max-width: 992px) {
+            .residences-grid { grid-template-columns: repeat(2, 1fr); }
+            .featured-container, .footer-container { grid-template-columns: 1fr; gap: 40px; }
+            .page-hero h1 { font-size: 3rem; }
+            .page-hero { min-height: 450px; height: 55vh; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            section { padding: 70px 0; }
+            .residences-grid { grid-template-columns: 1fr; }
+            .page-hero { min-height: 380px; height: 50vh; }
+            .page-hero h1 { font-size: 2.2rem; }
+            .mobile-menu-btn { display: block; }
+            .header-container { justify-content: space-between; }
+            nav ul { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--navy); flex-direction: column; padding: 25px; gap: 18px; text-align: center; z-index: 999; }
+            nav ul.show { display: flex; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .featured-stats { gap: 25px; flex-wrap: wrap; }
+            .popup-form .form-row { grid-template-columns: 1fr; gap: 0; }
+            .popup-header h3 { font-size: 1.4rem; }
+            .footer-container { grid-template-columns: 1fr; gap: 35px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://wa.me/2348136241154?text=Hello%20saas%20construct%2C%20I'm%20interested%20in%20your%20luxury%20residences%20in%20Abuja." class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <header>
+        <div class="container header-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            <a href="index.html" class="logo">saas<span>construct</span></a>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="residences.html" class="active">Residences</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="index.html#philosophy">Philosophy</a></li>
+                    <li><a href="index.html#contact" id="navContactBtn">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Signature Residences Abuja</h1>
+            <p>Exceptional homes across Abuja's finest districts</p>
+        </div>
+    </section>
+
+    <!-- Featured Residence -->
+    <section class="featured-residence">
+        <div class="container featured-container">
+            <div class="featured-image">
+                <img src="katampe-hills-residence.jpg" alt="Katampe Hills Estate Abuja">
+            </div>
+            <div class="featured-content">
+                <h2>Katampe Hills Estate</h2>
+                <p>Our flagship project in the heart of Abuja's most coveted enclave. Perched atop the prestigious Katampe Hills, this architectural masterpiece offers panoramic views of the Abuja skyline, floor-to-ceiling glass walls, and an impeccable attention to detail that defines the saas construct standard.</p>
+                <div class="featured-stats">
+                    <div class="featured-stat"><h4>7,500</h4><p>Sq Ft</p></div>
+                    <div class="featured-stat"><h4>6</h4><p>Bedrooms</p></div>
+                    <div class="featured-stat"><h4>7</h4><p>Bathrooms</p></div>
+                    <div class="featured-stat"><h4>2024</h4><p>Completed</p></div>
+                </div>
+                <!-- Inquire button removed as per original -->
+            </div>
+        </div>
+    </section>
+
+    <!-- All Residences Grid -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Portfolio</span>
+                <h2 class="section-title">Exclusive Residences in Abuja</h2>
+                <p>Each property is uniquely designed to reflect the vision and lifestyle of its owners</p>
+            </div>
+            <div class="residences-grid">
+                <!-- Residence 1: Kado Estate -->
+                <div class="residence-card">
+                    <div class="card-image"><img src="kado-residence.jpg" alt="Kado Estate"><span class="card-category">Kado Estate</span></div>
+                    <div class="card-content">
+                        <h3>Kado Villa</h3>
+                        <div class="card-location"><i class="fas fa-map-marker-alt"></i> Kado, Abuja</div>
+                        <div class="card-meta"><span><i class="far fa-calendar"></i> 2024</span><span><i class="fas fa-ruler-combined"></i> 7,500 sq.ft</span></div>
+                        <p class="card-description">Stunning hilltop estate with panoramic Abuja skyline views, featuring floor-to-ceiling glass, natural stone, and private rooftop terrace.</p>
+                        <div class="card-features"><span class="feature-tag">Infinity Pool</span><span class="feature-tag">Home Theater</span><span class="feature-tag">Wine Cellar</span><span class="feature-tag">Smart Home</span></div>
+                    </div>
+                </div>
+                <!-- Residence 2: Asokoro Mansion (replaces position of removed Guzape) -->
+                <div class="residence-card">
+                    <div class="card-image"><img src="asokoro-residence.jpg" alt="Asokoro Luxury Mansion"><span class="card-category">Classic Elegance</span></div>
+                    <div class="card-content">
+                        <h3>Asokoro Luxury Mansion</h3>
+                        <div class="card-location"><i class="fas fa-map-marker-alt"></i> Asokoro, Abuja</div>
+                        <div class="card-meta"><span><i class="far fa-calendar"></i> 2023</span><span><i class="fas fa-ruler-combined"></i> 6,800 sq.ft</span></div>
+                        <p class="card-description">Timeless architectural masterpiece in Abuja's most exclusive diplomatic zone, with handcrafted details, private courtyards, and lush gardens.</p>
+                        <div class="card-features"><span class="feature-tag">Diplomatic Zone</span><span class="feature-tag">Outdoor Pavilion</span><span class="feature-tag">Private Library</span><span class="feature-tag">Fountain Garden</span></div>
+                    </div>
+                </div>
+                <!-- Residence 3: Wuse 2 Retreat -->
+                <div class="residence-card">
+                    <div class="card-image"><img src="wuse2-residence.jpg" alt="wuse 2 Retreat"><span class="card-category">Lakefront Modern</span></div>
+                    <div class="card-content">
+                        <h3>Wuse 2 Retreat</h3>
+                        <div class="card-location"><i class="fas fa-map-marker-alt"></i> Wuse 2, Abuja</div>
+                        <div class="card-meta"><span><i class="far fa-calendar"></i> 2022</span><span><i class="fas fa-ruler-combined"></i> 4,500 sq.ft</span></div>
+                        <p class="card-description">A serene lakefront sanctuary with floor-to-ceiling windows framing.</p>
+                        <div class="card-features"><span class="feature-tag">Lake Views</span><span class="feature-tag">Stone Fireplace</span><span class="feature-tag">Spa Suite</span><span class="feature-tag">Private Jetty</span></div>
+                    </div>
+                </div>
+                <!-- Residence 4: Life Camp -->
+                <div class="residence-card">
+                    <div class="card-image"><img src="lifecamp-residence.jpg" alt="Maitama Hillside Haven"><span class="card-category">Hilltop Modern</span></div>
+                    <div class="card-content">
+                        <h3>Life Camp Villa</h3>
+                        <div class="card-location"><i class="fas fa-map-marker-alt"></i> Life Camp, Abuja</div>
+                        <div class="card-meta"><span><i class="far fa-calendar"></i> 2023</span><span><i class="fas fa-ruler-combined"></i> 5,800 sq.ft</span></div>
+                        <p class="card-description">A minimalist hillside sanctuary with dramatic views of Abuja's skyline, passive solar design, and seamless indoor-outdoor flow in prestigious Life Camp.</p>
+                        <div class="card-features"><span class="feature-tag">Solar Passive</span><span class="feature-tag">Landscaped Terraces</span><span class="feature-tag">Infinity Edge</span><span class="feature-tag">Outdoor Lounge</span></div>
+                    </div>
+                </div>
+                <!-- Residence 5: Maitama Signature Villa -->
+                <div class="residence-card">
+                    <div class="card-image"><img src="maitama-residence.jpg" alt="Maitama Signature Villa"><span class="card-category">Urban Luxury</span></div>
+                    <div class="card-content">
+                        <h3>Maitama Signature Villa</h3>
+                        <div class="card-location"><i class="fas fa-map-marker-alt"></i> Maitama, Abuja</div>
+                        <div class="card-meta"><span><i class="far fa-calendar"></i> 2024</span><span><i class="fas fa-ruler-combined"></i> 4,800 sq.ft</span></div>
+                        <p class="card-description">A contemporary urban masterpiece in the heart of Maitama, featuring a private rooftop terrace, designer finishes, and state-of-the-art home automation.</p>
+                        <div class="card-features"><span class="feature-tag">Rooftop Terrace</span><span class="feature-tag">Guest Suite</span><span class="feature-tag">City Views</span><span class="feature-tag">Chef's Kitchen</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section - Button now links to index.html#contact section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Begin Your Journey Home</h2>
+            <p>Whether you're seeking a ready-to-move-in masterpiece or envisioning a custom creation, our team is ready to bring your vision to life.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-primary">Schedule Consultation</a>
+                <a href="index.html" class="btn btn-outline">Return to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Modal - kept for legacy -->
+    <div id="contactPopup" class="popup-modal">
+        <div class="popup-content">
+            <div class="popup-header">
+                <button class="close-popup" id="closePopupBtn">&times;</button>
+                <h3>Inquire About Our Residences</h3>
+                <p>Fill out the form and our team will respond within 24 hours</p>
+            </div>
+            <div class="popup-form">
+                <form id="popupContactForm">
+                    <div class="form-row">
+                        <div class="form-group"><input type="text" name="firstName" placeholder="First name" required></div>
+                        <div class="form-group"><input type="text" name="lastName" placeholder="Last name" required></div>
+                    </div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Email address" required></div>
+                    <div class="form-group"><input type="tel" name="phone" placeholder="Phone number"></div>
+                    <div class="form-group">
+                        <select name="projectType" required>
+                            <option value="" disabled selected>Project Type</option>
+                            <option value="New Construction">New Construction</option>
+                            <option value="Renovation">Renovation</option>
+                            <option value="Consultation Only">Consultation Only</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><textarea name="message" rows="4" placeholder="Tell us about your vision or questions..." required></textarea></div>
+                    <button type="submit" class="btn btn-primary" style="width:100%; background: var(--gold); border-color: var(--gold); color: var(--navy);">Send Inquiry <i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div id="popupFormStatus" class="popup-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">saas<span>construct</span></div>
+                    <p>Crafting exceptional residences across Abuja's finest districts — from Katampe Hills to Asokoro — with uncompromising quality and timeless design.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="residences.html">Residences</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="index.html#philosophy">Philosophy</a></li>
+                        <li><a href="index.html#contact" class="footer-contact-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#agricultural-design">Agricultural Design</a></li>
+                        <li><a href="services.html#building-construction">Building Construction</a></li>
+                        <li><a href="services.html#general-supervision">General Supervision</a></li>
+                        <li><a href="services.html#renovation-restoration">Renovation & Restoration</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 saas construct. All rights reserved. | Premium Residential Construction in Abuja</p></div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        if(mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('show');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if(link.getAttribute('href') !== '#') {
+                    navMenu.classList.remove('show');
+                    if(mobileBtn) mobileBtn.querySelector('i').className = 'fas fa-bars';
+                }
+            });
+        });
+
+        // Popup Modal Logic (legacy)
+        const popupModal = document.getElementById('contactPopup');
+        const openPopupBtns = document.querySelectorAll('.open-popup-btn');
+        const closePopupBtn = document.getElementById('closePopupBtn');
+
+        function openPopup() {
+            if(popupModal) popupModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePopup() {
+            if(popupModal) popupModal.style.display = 'none';
+            document.body.style.overflow = '';
+            const statusDiv = document.getElementById('popupFormStatus');
+            if(statusDiv) statusDiv.innerHTML = '';
+        }
+
+        if(openPopupBtns.length) {
+            openPopupBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openPopup();
+                });
+            });
+        }
+
+        if(closePopupBtn) {
+            closePopupBtn.addEventListener('click', closePopup);
+        }
+
+        if(popupModal) {
+            popupModal.addEventListener('click', (e) => {
+                if(e.target === popupModal) {
+                    closePopup();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && popupModal && popupModal.style.display === 'flex') {
+                closePopup();
+            }
+        });
+
+        // Popup form submission handler (legacy)
+        const popupContactForm = document.getElementById('popupContactForm');
+        const popupFormStatus = document.getElementById('popupFormStatus');
+        if(popupContactForm) {
+            popupContactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                popupFormStatus.innerHTML = '<span style="color: var(--gold);">Sending your inquiry...</span>';
+                const formData = new FormData(popupContactForm);
+                const data = Object.fromEntries(formData.entries());
+                try {
+                    await fetch('https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID_CONTACT/exec', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(data)
+                    });
+                    popupFormStatus.innerHTML = '<span style="color: #4CAF50;">✓ Thank you! Our Abuja team will contact you within 24 hours.</span>';
+                    popupContactForm.reset();
+                    setTimeout(() => {
+                        closePopup();
+                        popupFormStatus.innerHTML = '';
+                    }, 2000);
+                } catch (error) {
+                    popupFormStatus.innerHTML = '<span style="color: #ff6b6b;">⚠️ Submission failed. Please try again.</span>';
+                }
+            });
+        }
+
+        // Active nav highlight based on current page
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            const href = link.getAttribute('href');
+            if(href === currentPage || (currentPage === '' && href === 'index.html')) {
+                link.classList.add('active');
+            } else if(link.getAttribute('href') === 'residences.html' && currentPage === 'residences.html') {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

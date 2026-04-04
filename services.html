@@ -1,0 +1,1357 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Our Services | saas construct - Premium Construction Services</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ----- CSS VARIABLES ----- */
+        :root {
+            --primary: #0a1a2b;
+            --primary-light: #1e3a5f;
+            --secondary: #c6a15b;
+            --secondary-light: #dbb47a;
+            --accent: #8a6e45;
+            --light: #ffffff;
+            --off-white: #faf9f7;
+            --gray-light: #e9e5de;
+            --gray: #6b6b6b;
+            --dark: #1a1e24;
+            --overlay: rgba(0, 0, 0, 0.7);
+            --shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+            --shadow-hover: 0 40px 80px rgba(0, 0, 0, 0.18);
+            --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            
+            --gold: #c6a15b;
+            --gold-light: #dbb47a;
+            --navy: #0a1a2b;
+            --navy-light: #1e3a5f;
+            --cream: #faf9f7;
+            --charcoal: #2c2c2c;
+            --taupe: #8b7d6b;
+        }
+
+        /* ----- RESET & BASE STYLES ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 36px;
+            background-color: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: var(--navy);
+            color: var(--light);
+            border-color: var(--navy);
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .btn-outline-light {
+            border-color: var(--light);
+            color: var(--light);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--light);
+            color: var(--navy);
+        }
+
+        .btn-service {
+            background-color: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+        .btn-service:hover {
+            background-color: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-bottom: 16px;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-subtitle::before,
+        .section-subtitle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-subtitle::before {
+            right: 100%;
+            margin-right: 20px;
+        }
+
+        .section-subtitle::after {
+            left: 100%;
+            margin-left: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(2.8rem, 5vw, 4rem);
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 24px;
+            line-height: 1.1;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: var(--navy);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--gold);
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            cursor: pointer;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+
+        /* Page Hero - More visible background image (reduced overlay darkness) */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(10,26,43,0.65), rgba(30,58,95,0.6)), url('services-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 200px 0 120px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        /* Fallback for better visibility if image doesn't load - ensure text remains readable */
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10,26,43,0.4);
+            z-index: 0;
+        }
+        .page-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(3.5rem, 6vw, 5rem);
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+            font-weight: 400;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.2);
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .breadcrumb a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb span {
+            color: rgba(255,255,255,0.85);
+        }
+
+        /* Services Grid */
+        .services-detailed {
+            background: var(--light);
+        }
+
+        .service-detailed-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .service-detailed-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-detailed-card:nth-child(even) .service-image {
+            order: 2;
+        }
+
+        .service-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow-hover);
+            height: 450px;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .service-detailed-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            z-index: 2;
+        }
+
+        .service-content-detailed {
+            padding: 40px;
+        }
+
+        .service-content-detailed h2 {
+            font-size: 2.8rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .service-content-detailed h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .service-content-detailed p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 30px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: var(--navy);
+        }
+
+        .service-features i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .service-cta {
+            margin-top: 30px;
+        }
+
+        /* Before & After Slider Container */
+        .before-after-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .before-after-stack {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .before-img, .after-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1.2s ease-in-out;
+            border-radius: 12px;
+        }
+
+        .before-img {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .after-img {
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .before-after-container.show-after .after-img {
+            opacity: 1;
+        }
+
+        .before-after-container.show-after .before-img {
+            opacity: 0;
+        }
+
+        .slider-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            z-index: 10;
+            font-family: 'Montserrat', sans-serif;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .slider-label i {
+            margin-right: 6px;
+            color: var(--gold);
+        }
+
+        .slider-timer-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(198,161,91,0.9);
+            color: var(--navy);
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+            letter-spacing: 0.5px;
+            pointer-events: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 40px 30px;
+            background: white;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .process-step.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .process-step:nth-child(2) { transition-delay: 0.2s; }
+        .process-step:nth-child(3) { transition-delay: 0.4s; }
+        .process-step:nth-child(4) { transition-delay: 0.6s; }
+
+        .process-step:hover {
+            transform: translateY(-10px) translateX(0) !important;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 2rem;
+            font-weight: 600;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-family: 'Cormorant Garamond', serif;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .process-step p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 1px solid var(--gray-light);
+            padding: 50px 40px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: var(--shadow);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transform: rotate(45deg);
+        }
+
+        .pricing-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(198,161,91,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover .pricing-icon {
+            background: var(--gold);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            color: var(--gray);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--cream);
+        }
+
+        .faq-grid {
+            max-width: 900px;
+            margin: 50px auto 0;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(198,161,91,0.05);
+        }
+
+        .faq-question h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        .faq-question i {
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            padding: 0 30px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: rgba(198,161,91,0.02);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 20px 30px 30px;
+        }
+
+        .faq-answer p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 100;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container { padding: 0 40px; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .service-detailed-card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .service-detailed-card:nth-child(even) .service-image {
+                order: 0;
+            }
+            .service-image { height: 400px; }
+            .pricing-card.featured { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+            .header-container { justify-content: space-between; }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                text-align: center;
+            }
+            nav ul.show { display: flex; }
+            .process-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .service-features { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .footer-social { justify-content: center; }
+        }
+
+        .consultation-trigger {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/2348136241154?text=Hello%20saas%20construct%2C%20I'm%20interested%20in%20your%20services." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="index.html" class="logo">saas<span>construct</span></a>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="residences.html" target="_blank">Residences</a></li>
+                    <li><a href="services.html" target="_blank" class="active">Services</a></li>
+                    <li><a href="projects.html" target="_blank">Projects</a></li>
+                    <li><a href="index.html#philosophy">Philosophy</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero - More visible background (lighter overlay) -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive construction and design solutions tailored to bring your vision to life with uncompromising quality and attention to detail.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Services</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section class="services-detailed">
+        <div class="container">
+            <!-- Service 1: Architectural Design -->
+            <div class="service-detailed-card" id="architectural-design">
+                <div class="service-image">
+                    <img src="architectural-design-service.jpg" alt="Architectural Design" loading="lazy">
+                    <div class="service-badge">Premium</div>
+                </div>
+                <div class="service-content-detailed">
+                    <h2>Architectural Design Services</h2>
+                    <p>Our architectural design service goes beyond blueprints. We create living spaces that reflect your personality, respond to your site, and stand the test of time.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Custom home design</li>
+                        <li><i class="fas fa-check-circle"></i> Site analysis & planning</li>
+                        <li><i class="fas fa-check-circle"></i> 3D visualization</li>
+                        <li><i class="fas fa-check-circle"></i> Permit drawings</li>
+                        <li><i class="fas fa-check-circle"></i> Material selection</li>
+                        <li><i class="fas fa-check-circle"></i> Sustainable design</li>
+                    </ul>
+                    <div class="service-cta">
+                        <a href="https://wa.me/2348136241154?text=Hello%20saas%20construct%2C%20I'm%20interested%20in%20your%20Architectural%20Design%20services." class="btn btn-service" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: Building Construction -->
+            <div class="service-detailed-card" id="construction">
+                <div class="service-image">
+                    <img src="building-construction-service.jpg" alt="Building Construction" loading="lazy">
+                    <div class="service-badge">Popular</div>
+                </div>
+                <div class="service-content-detailed">
+                    <h2>Building Construction</h2>
+                    <p>From groundbreaking to final walkthrough, our construction management ensures every detail is executed to perfection.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Full-service construction</li>
+                        <li><i class="fas fa-check-circle"></i> Project management</li>
+                        <li><i class="fas fa-check-circle"></i> Quality control</li>
+                        <li><i class="fas fa-check-circle"></i> Budget management</li>
+                        <li><i class="fas fa-check-circle"></i> Timeline optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Subcontractor coordination</li>
+                    </ul>
+                    <div class="service-cta">
+                        <a href="https://wa.me/2348136241154?text=Hello%20saas%20construct%2C%20I'm%20interested%20in%20your%20Building%20Construction%20services." class="btn btn-service" target="_blank"><i class="fab fa-whatsapp"></i> Discuss on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: General Supervision -->
+            <div class="service-detailed-card" id="supervision">
+                <div class="service-image">
+                    <img src="general-supervision-service.jpg" alt="Construction Supervision" loading="lazy">
+                    <div class="service-badge">Expert</div>
+                </div>
+                <div class="service-content-detailed">
+                    <h2>General Supervision</h2>
+                    <p>Already have a contractor but need expert oversight? Our supervision service provides independent quality assurance.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Independent quality audits</li>
+                        <li><i class="fas fa-check-circle"></i> Progress monitoring</li>
+                        <li><i class="fas fa-check-circle"></i> Material verification</li>
+                        <li><i class="fas fa-check-circle"></i> Code compliance checks</li>
+                        <li><i class="fas fa-check-circle"></i> Punch list inspections</li>
+                        <li><i class="fas fa-check-circle"></i> Weekly reporting</li>
+                    </ul>
+                    <div class="service-cta">
+                        <a href="https://wa.me/2348136241154?text=Hello%20saas%20construct%2C%20I'm%20interested%20in%20your%20General%20Supervision%20services." class="btn btn-service" target="_blank"><i class="fab fa-whatsapp"></i> Request on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Renovation & Restoration -->
+            <div class="service-detailed-card" id="renovation">
+                <div class="service-image">
+                    <div class="before-after-container" id="renovationSlider">
+                        <div class="before-after-stack">
+                            <img class="before-img" src="renovation-restoration-before.jpg" alt="Before Renovation" loading="lazy">
+                            <img class="after-img" src="renovation-restoration-after.jpg" alt="After Renovation" loading="lazy">
+                        </div>
+                        <div class="slider-label"><i class="fas fa-exchange-alt"></i> Before → After</div>
+                        <div class="slider-timer-badge"><i class="fas fa-sync-alt"></i> Auto cycling</div>
+                    </div>
+                    <div class="service-badge">Transformative</div>
+                </div>
+                <div class="service-content-detailed">
+                    <h2>Renovation & Restoration</h2>
+                    <p>Breathe new life into your existing property. Whether it's a complete home transformation, sensitive historic restoration, or targeted updates, we preserve the character while introducing modern comfort and efficiency.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> Full home renovations</li>
+                        <li><i class="fas fa-check-circle"></i> Kitchen & bath remodels</li>
+                        <li><i class="fas fa-check-circle"></i> Historic restoration</li>
+                        <li><i class="fas fa-check-circle"></i> Additions & expansions</li>
+                        <li><i class="fas fa-check-circle"></i> Energy efficiency upgrades</li>
+                        <li><i class="fas fa-check-circle"></i> Modernization</li>
+                    </ul>
+                    <div class="service-cta">
+                        <a href="https://wa.me/2348136241154?text=Hello%20saas%20construct%2C%20I'm%20interested%20in%20your%20Renovation%20and%20Restoration%20services." class="btn btn-service" target="_blank"><i class="fab fa-whatsapp"></i> Plan on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">How We Work</span>
+                <h2 class="section-title">Our Design-Build Process</h2>
+                <p class="section-description">A seamless journey from concept to completion, with you at the center of every decision.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step"><div class="step-number">01</div><h3>Discovery</h3><p>We begin by understanding your vision, lifestyle, needs, and budget through in-depth consultation and site analysis.</p></div>
+                <div class="process-step"><div class="step-number">02</div><h3>Design</h3><p>Our architects translate your ideas into detailed plans, 3D visualizations, and material selections for your approval.</p></div>
+                <div class="process-step"><div class="step-number">03</div><h3>Planning</h3><p>We handle permits, engineering, and all pre-construction planning to ensure a smooth building phase.</p></div>
+                <div class="process-step"><div class="step-number">04</div><h3>Construction</h3><p>Our skilled team brings your home to life with meticulous craftsmanship, regular updates, and quality control.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Investment</span>
+                <h2 class="section-title">Service Packages</h2>
+                <p class="section-description">Flexible engagement options tailored to your project scope and needs.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <h3>Design Only</h3>
+                    <div class="pricing-price">₦450k<span>/project</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Concept design</li>
+                        <li><i class="fas fa-check"></i> Construction drawings</li>
+                        <li><i class="fas fa-check"></i> Material specifications</li>
+                        <li><i class="fas fa-check"></i> 3D visualizations</li>
+                        <li><i class="fas fa-check"></i> Permit assistance</li>
+                        <li><i class="fas fa-check"></i> 2 design revisions</li>
+                    </ul>
+                    <a href="https://wa.me/2348136241154?text=Hello%20saas%20construct%2C%20I'm%20interested%20in%20your%20Design%20Only%20package." class="btn btn-service" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-icon"><i class="fas fa-home"></i></div>
+                    <h3>Full Service</h3>
+                    <div class="pricing-price">Custom<span>/project</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Complete architectural design</li>
+                        <li><i class="fas fa-check"></i> Full construction management</li>
+                        <li><i class="fas fa-check"></i> Premium materials</li>
+                        <li><i class="fas fa-check"></i> Interior design consultation</li>
+                        <li><i class="fas fa-check"></i> Unlimited revisions</li>
+                        <li><i class="fas fa-check"></i> 5-year workmanship warranty</li>
+                    </ul>
+                    <a href="https://wa.me/2348136241154?text=Hello%20saas%20construct%2C%20I'm%20interested%20in%20your%20Full%20Service%20package." class="btn btn-service" target="_blank"><i class="fab fa-whatsapp"></i> Get Quote</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Supervision</h3>
+                    <div class="pricing-price">₦250k<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Weekly site inspections</li>
+                        <li><i class="fas fa-check"></i> Quality control reports</li>
+                        <li><i class="fas fa-check"></i> Material verification</li>
+                        <li><i class="fas fa-check"></i> Progress photos</li>
+                        <li><i class="fas fa-check"></i> Budget tracking</li>
+                        <li><i class="fas fa-check"></i> Punch list inspection</li>
+                    </ul>
+                    <a href="https://wa.me/2348136241154?text=Hello%20saas%20construct%2C%20I'm%20interested%20in%20your%20Supervision%20package." class="btn btn-service" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: var(--gray);">*All prices are estimates. Final pricing depends on project scope, size, and specifications.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">Answers to common questions about our services and process.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item"><div class="faq-question"><h3>How long does a typical project take?</h3><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Project timelines vary based on scope and complexity. A custom home typically takes 12-18 months from design to completion.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><h3>Do you work with clients who have their own architect?</h3><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Absolutely. We regularly collaborate with external architects and designers.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><h3>What areas do you serve?</h3><i class="fas fa-plus"></i></div><div class="faq-answer"><p>We primarily serve Abuja and its environs, including Asokoro, Maitama, Wuse, Garki, and surrounding areas.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><h3>How do you handle budgets and cost overruns?</h3><i class="fas fa-plus"></i></div><div class="faq-answer"><p>We provide detailed cost estimates before construction begins and maintain strict budget tracking.</p></div></div>
+                <div class="faq-item"><div class="faq-question"><h3>Do you offer warranties on your work?</h3><i class="fas fa-plus"></i></div><div class="faq-answer"><p>Yes. All our work comes with a comprehensive warranty. Structure work is warranted for 5 years.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section - Consultation button redirects to index.html#contact -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss your vision and how we can bring it to life with our comprehensive construction services.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-primary consultation-trigger">Schedule Consultation</a>
+                <a href="tel:08136241154" class="btn btn-outline-light"><i class="fas fa-phone-alt"></i> Call Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">saas<span>construct</span></div>
+                    <p>Crafting exceptional residences across Abuja that stand the test of time, with uncompromising quality and timeless design.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-houzz"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Architectural Design</a></li>
+                        <li><a href="services.html#construction">Building Construction</a></li>
+                        <li><a href="services.html#supervision">General Supervision</a></li>
+                        <li><a href="services.html#renovation">Renovation & Restoration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="residences.html" target="_blank">Residences</a></li>
+                        <li><a href="projects.html" target="_blank">Projects</a></li>
+                        <li><a href="index.html#philosophy">Philosophy</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 saas construct. All rights reserved. | Premium Residential Construction, Abuja, Nigeria</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navMenuElem = document.getElementById('navMenu');
+        if(mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                navMenuElem.classList.toggle('show');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+        }
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenuElem.classList.remove('show');
+                if(mobileBtn && mobileBtn.querySelector('i')) {
+                    mobileBtn.querySelector('i').classList.add('fa-bars');
+                    mobileBtn.querySelector('i').classList.remove('fa-times');
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) otherItem.classList.remove('active');
+                });
+                item.classList.toggle('active', !isActive);
+            });
+        });
+
+        // Intersection Observer for service cards
+        const serviceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('revealed');
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.service-detailed-card').forEach(card => serviceObserver.observe(card));
+
+        // Intersection Observer for process steps
+        const processObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('revealed');
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.process-step').forEach(step => processObserver.observe(step));
+
+        // Before & After Auto Slider for Renovation
+        const sliderContainer = document.getElementById('renovationSlider');
+        if(sliderContainer) {
+            let showAfter = false;
+            const cycleInterval = setInterval(() => {
+                showAfter = !showAfter;
+                if(showAfter) {
+                    sliderContainer.classList.add('show-after');
+                    const label = sliderContainer.querySelector('.slider-label');
+                    if(label) label.innerHTML = '<i class="fas fa-check-circle"></i> After → Before';
+                } else {
+                    sliderContainer.classList.remove('show-after');
+                    const label = sliderContainer.querySelector('.slider-label');
+                    if(label) label.innerHTML = '<i class="fas fa-exchange-alt"></i> Before → After';
+                }
+            }, 3000);
+            window.addEventListener('beforeunload', () => clearInterval(cycleInterval));
+        }
+
+        // Handle hash navigation for philosophy section when coming from other pages
+        if (window.location.hash) {
+            const targetElement = document.querySelector(window.location.hash);
+            if (targetElement) {
+                setTimeout(() => {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>

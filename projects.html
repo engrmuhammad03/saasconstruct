@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <title>Our Projects | saas construct - Abuja Luxury Construction</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ----- CSS VARIABLES (matching main site) ----- */
+        :root {
+            --primary: #0a1a2b;
+            --primary-light: #1e3a5f;
+            --secondary: #c6a15b;
+            --secondary-light: #dbb47a;
+            --accent: #8a6e45;
+            --light: #ffffff;
+            --off-white: #faf9f7;
+            --gray-light: #e9e5de;
+            --gray: #6b6b6b;
+            --dark: #1a1e24;
+            --overlay: rgba(0, 0, 0, 0.7);
+            --shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+            --shadow-hover: 0 40px 80px rgba(0, 0, 0, 0.18);
+            --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --border-radius: 8px;
+            --gold: #c6a15b;
+            --gold-light: #dbb47a;
+            --navy: #0a1a2b;
+            --navy-light: #1e3a5f;
+            --cream: #faf9f7;
+            --charcoal: #2c2c2c;
+            --taupe: #8b7d6b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background-color: var(--cream);
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 32px;
+            background-color: transparent;
+            color: var(--light);
+            border: 2px solid var(--light);
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: var(--light);
+            color: var(--navy);
+            border-color: var(--light);
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-bottom: 16px;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 26, 43, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 500;
+            color: white;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .logo span { color: var(--gold); font-weight: 300; font-style: italic; }
+        nav ul { display: flex; list-style: none; gap: 40px; }
+        nav ul li a { text-decoration: none; color: white; font-weight: 400; font-size: 0.85rem; transition: var(--transition); text-transform: uppercase; letter-spacing: 0.1em; position: relative; padding: 4px 0; }
+        nav ul li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s ease; }
+        nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; cursor: pointer; width: 48px; height: 48px; border-radius: 50%; backdrop-filter: blur(5px); transition: var(--transition); align-items: center; justify-content: center; }
+        .mobile-menu-btn:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, rgba(10,26,43,0.65), rgba(30,58,95,0.6)), url('project-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 160px 0 80px;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+            position: relative;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+            z-index: 0;
+        }
+        .page-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero h1 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            font-weight: 400;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Projects Grid - 3 Abuja Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .project-card {
+            background: var(--light);
+            border: 1px solid var(--gray-light);
+            transition: var(--transition);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+            text-decoration: none;
+            color: inherit;
+        }
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold);
+        }
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+        .project-card:hover .project-image img {
+            transform: scale(1.08);
+        }
+        .project-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 8px 16px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            z-index: 2;
+        }
+        .project-content {
+            padding: 30px 25px;
+            background: var(--light);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: var(--navy);
+            font-weight: 500;
+        }
+        .project-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--taupe);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .project-location i { color: var(--gold); }
+        .project-meta {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+        .project-meta i { color: var(--gold); }
+        .project-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Before & After Gallery */
+        .before-after-gallery { 
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%); 
+            padding: 100px 0; 
+        }
+        .ba-pair-container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            text-align: center; 
+            text-decoration: none; 
+            color: inherit; 
+            display: block;
+        }
+        .ba-pair { 
+            position: relative; 
+            width: 100%; 
+            height: 500px; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow-hover); 
+            margin-bottom: 15px; 
+        }
+        .ba-image { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            opacity: 0; 
+            transition: opacity 1s ease-in-out; 
+            z-index: 1; 
+        }
+        .ba-image.active { opacity: 1; z-index: 2; }
+        .ba-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .ba-label { 
+            position: absolute; top: 20px; left: 20px; padding: 8px 20px; background: rgba(10,26,43,0.85); backdrop-filter: blur(8px); color: white; font-weight: 600; font-size: 1rem; letter-spacing: 0.15em; border-radius: 30px; border: 1px solid var(--gold); z-index: 3; min-width: 90px; text-align: center; 
+        }
+        .after-label { left: auto; right: 20px; background: rgba(198,161,91,0.9); color: var(--navy); border-color: white; }
+        .ba-timer-horizontal {
+            width: 100%;
+            height: 12px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 30px;
+            overflow: hidden;
+            margin: 15px 0 20px;
+        }
+        .timer-progress-horizontal {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            border-radius: 30px;
+            transition: width 1s linear;
+        }
+        .timer-text-horizontal {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .ba-project-info h3 { font-size: 2rem; color: var(--navy); margin-bottom: 8px; }
+        .ba-project-info p { color: var(--gold); font-size: 1.1rem; margin-bottom: 20px; letter-spacing: 0.1em; }
+        .ba-stats { display: flex; gap: 40px; justify-content: center; padding: 20px 0; flex-wrap: wrap; }
+        .ba-stat-value { display: block; font-size: 2rem; font-weight: 600; color: var(--navy); }
+        .ba-stat-label { font-size: 0.9rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.1em; }
+
+        /* Project Execution Steps */
+        .project-steps { background: var(--light); padding: 100px 0; overflow-x: hidden; }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .step-card {
+            text-align: center;
+            padding: 40px 25px;
+            background: var(--cream);
+            border: 1px solid var(--gray-light);
+            border-radius: 8px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.3s ease;
+        }
+        .step-card.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .step-card:nth-child(1) { transition-delay: 0.05s; }
+        .step-card:nth-child(2) { transition-delay: 0.15s; }
+        .step-card:nth-child(3) { transition-delay: 0.25s; }
+        .step-card:nth-child(4) { transition-delay: 0.35s; }
+        
+        .step-card:hover {
+            transform: translateY(-10px) translateX(0) !important;
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold);
+        }
+        .step-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(198,161,91,0.1);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(198,161,91,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+        .step-card:hover .step-icon {
+            background: var(--gold);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .step-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--navy); }
+        .step-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
+
+        /* FEATURED PROJECTS - BIGGER IMAGES + TOUCH SMOOTH SCROLL (3 SLIDES) */
+        .featured-projects { background: var(--cream); padding: 100px 0; overflow: hidden; }
+        .projects-slider-container { position: relative; max-width: 1600px; margin: 0 auto; padding: 0 20px; }
+        .projects-slider-wrapper {
+            overflow: hidden;
+            margin: 0 0px;
+            border-radius: 28px;
+            box-shadow: var(--shadow-hover);
+            background: #000;
+        }
+        .projects-slider {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: grab;
+            touch-action: pan-y pinch-zoom;
+            will-change: transform;
+        }
+        .projects-slider.dragging {
+            transition: none;
+            cursor: grabbing;
+        }
+        /* Larger slide size */
+        .project-slide { 
+            flex: 0 0 100%; 
+            position: relative; 
+            border-radius: 0; 
+            overflow: hidden; 
+            aspect-ratio: 16 / 9;
+            box-shadow: none; 
+            transition: transform 0.3s ease;
+            user-select: none;
+            display: block;
+            text-decoration: none;
+            background: #1a1a1a;
+        }
+        .project-slide img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+            transition: transform 0.5s ease; 
+            pointer-events: none;
+        }
+        .project-slide:hover img { transform: scale(1.03); }
+        
+        /* Navigation arrows + dots */
+        .projects-navigation { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 40px; 
+            margin-top: 50px; 
+        }
+        .projects-arrow { 
+            width: 55px; 
+            height: 55px; 
+            border: 2px solid var(--navy); 
+            background: transparent; 
+            color: var(--navy); 
+            cursor: pointer; 
+            transition: var(--transition); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.3rem; 
+            border-radius: 50%;
+        }
+        .projects-arrow:hover:not(:disabled) { background: var(--navy); color: white; border-color: var(--navy); }
+        .projects-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+        .projects-dots { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+        .projects-dot { 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            background: var(--gray-light); 
+            border: none; 
+            cursor: pointer; 
+            transition: var(--transition); 
+        }
+        .projects-dot.active { background: var(--gold); transform: scale(1.4); }
+
+        /* HIDE ARROWS ON LAPTOP & DESKTOP (screens 769px and above) */
+        @media (min-width: 769px) {
+            .projects-arrow {
+                display: none !important;
+            }
+        }
+        /* On mobile, arrows remain visible */
+        @media (max-width: 768px) {
+            .projects-arrow {
+                display: flex;
+            }
+        }
+
+        /* Consultation Popup */
+        .consultation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .consultation-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .consultation-popup {
+            background: white;
+            padding: 50px;
+            max-width: 550px;
+            width: 90%;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(30px);
+            transition: transform 0.4s ease;
+        }
+        .consultation-overlay.active .consultation-popup {
+            transform: translateY(0);
+        }
+        .close-popup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .close-popup:hover {
+            color: var(--gold);
+            background: rgba(198,161,91,0.1);
+            transform: rotate(90deg);
+        }
+        .consultation-popup h3 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 25px;
+            font-family: 'Cormorant Garamond', serif;
+            text-align: center;
+        }
+        .consultation-popup .form-group {
+            margin-bottom: 20px;
+        }
+        .consultation-popup input,
+        .consultation-popup select,
+        .consultation-popup textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--gray-light);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 8px;
+            background: white;
+        }
+        .consultation-popup input:focus,
+        .consultation-popup select:focus,
+        .consultation-popup textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .consultation-popup .btn-primary {
+            width: 100%;
+            margin-top: 10px;
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+            font-size: 1rem;
+            padding: 14px;
+        }
+        .consultation-popup .btn-primary:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+        .form-status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            display: none;
+        }
+        .form-status.success {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+            display: block;
+        }
+        .form-status.error {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: #f44336;
+            border: 1px solid #f44336;
+            display: block;
+        }
+
+        /* CTA Section */
+        .project-cta {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        .project-cta h2 { font-size: 2.8rem; margin-bottom: 20px; color: white; }
+        .project-cta p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9; }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a1a2b, #1e3a5f);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .footer-logo span { color: var(--gold); }
+        .footer-about p { color: rgba(255,255,255,0.6); line-height: 1.7; font-size: 0.9rem; }
+        .footer-links h4 { font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; transition: var(--transition); font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--gold); padding-left: 5px; }
+        .footer-services h4 { font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); }
+        .footer-services ul { list-style: none; }
+        .footer-services li { margin-bottom: 12px; }
+        .footer-services a { color: rgba(255,255,255,0.6); text-decoration: none; transition: var(--transition); font-size: 0.9rem; display: inline-block; }
+        .footer-services a:hover { color: var(--gold); padding-left: 5px; }
+        .footer-calendar {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .calendar-header { font-size: 0.8rem; font-weight: 500; color: var(--gold); margin-bottom: 5px; text-transform: uppercase; }
+        .calendar-date { font-size: 1rem; font-weight: 500; }
+        .calendar-day { font-size: 0.85rem; opacity: 0.9; margin-top: 3px; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+
+        /* Responsive */
+        @media (max-width: 1100px) { .container { padding: 0 40px; } }
+        @media (max-width: 992px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-container { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .ba-pair { height: 400px; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            section { padding: 70px 0; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+            .page-hero { padding: 140px 0 60px; }
+            .ba-pair { height: 280px; }
+            .mobile-menu-btn { display: flex; }
+            .header-container { justify-content: space-between; }
+            nav ul { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--navy); flex-direction: column; padding: 25px; gap: 18px; text-align: center; z-index: 999; }
+            nav ul.show { display: flex; }
+            .consultation-popup { padding: 35px 25px; }
+            .projects-slider-wrapper { margin: 0; border-radius: 20px; }
+            .project-slide { aspect-ratio: 4 / 3; }
+        }
+        @media (max-width: 576px) {
+            .section-title { font-size: 2rem; }
+            .ba-pair { height: 220px; }
+            .project-cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            <a href="index.html" class="logo">saas<span>construct</span></a>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="residences.html" target="_blank">Residences</a></li>
+                    <li><a href="services.html" target="_blank">Services</a></li>
+                    <li><a href="index.html#philosophy">Philosophy</a></li>
+                    <li><a href="projects.html" target="_blank" class="active">Projects</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Portfolio</h1>
+            <p>Explore our signature projects across Abuja, Nigeria — showcasing exceptional craftsmanship and timeless design.</p>
+        </div>
+    </section>
+
+    <!-- Projects Grid - 3 Abuja Projects -->
+    <section style="padding-top: 0;">
+        <div class="container">
+            <div class="projects-grid">
+                <div class="project-card"><div class="project-image"><img src="signature-residences-asokoro.jpg" alt="asokoro mansion villa"><span class="project-category">Modern Estate</span></div><div class="project-content"><h3>Luxury Mansion</h3><div class="project-location"><i class="fas fa-map-marker-alt"></i>Asokoro, Abuja</div><div class="project-meta"><span><i class="far fa-calendar"></i> 2024</span><span><i class="fas fa-ruler-combined"></i> 7,500 sq.ft</span></div><p class="project-description">A stunning hillside villa with panoramic Abuja city views, floor-to-ceiling glass, natural stone, and bespoke finishes.</p></div></div>
+                <div class="project-card"><div class="project-image"><img src="signature-residences-lifecamp.jpg" alt="Lifecamp Villa"><span class="project-category">Luxury Modern</span></div><div class="project-content"><h3>LifeCamp</h3><div class="project-location"><i class="fas fa-map-marker-alt"></i>LifeCamp, Abuja</div><div class="project-meta"><span><i class="far fa-calendar"></i> 2023</span><span><i class="fas fa-ruler-combined"></i> 9,200 sq.ft</span></div><p class="project-description">Landmark residence blending indoor/outdoor living, imported marble, and state-of-the-art smart home technology.</p></div></div>
+                <div class="project-card"><div class="project-image"><img src="signature-residences-katampe-hills.jpg" alt="Katampe Hills Villa"><span class="project-category">Mediterranean</span></div><div class="project-content"><h3>Katampe Hills Villa</h3><div class="project-location"><i class="fas fa-map-marker-alt"></i>Katampe, Abuja</div><div class="project-meta"><span><i class="far fa-calendar"></i> 2023</span><span><i class="fas fa-ruler-combined"></i> 6,800 sq.ft</span></div><p class="project-description">Timeless Mediterranean villa with handcrafted details, serene courtyards, water features, and lush garden views.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE & AFTER GALLERY -->
+    <section class="before-after-gallery"><div class="container"><div class="section-header"><span class="section-subtitle">Real Transformations</span><h2 class="section-title">Before & After Gallery</h2><p class="section-description">Life Camp luxury residence transformation — cycling every 6 seconds.</p></div><div class="ba-pair-container"><div class="ba-pair"><div class="ba-image ba-before active" id="baBefore1"><img src="lifecamp-before.jpg" alt="Before"><div class="ba-label before-label">BEFORE</div></div><div class="ba-image ba-after" id="baAfter1"><img src="lifecamp-after.jpg" alt="After"><div class="ba-label after-label">AFTER</div></div></div><div class="ba-timer-horizontal"><div class="timer-progress-horizontal" id="baProgress1"></div></div><div class="timer-text-horizontal" id="timerText1">Next in 6s</div><div class="ba-project-info"><h3>LifeCamp Luxury Residence</h3><p>LifeCamp, Abuja, Nigeria</p><div class="ba-stats"><div class="ba-stat"><span class="ba-stat-value">14</span><span class="ba-stat-label">Weeks</span></div><div class="ba-stat"><span class="ba-stat-value">3,200</span><span class="ba-stat-label">Sq Ft</span></div><div class="ba-stat"><span class="ba-stat-value">+52%</span><span class="ba-stat-label">Value</span></div></div></div></div></div></section>
+
+    <!-- PROJECT EXECUTION STEPS -->
+    <section class="project-steps"><div class="container"><div class="section-header"><span class="section-subtitle">Our Process</span><h2 class="section-title">Steps in Carrying Out Projects</h2><p class="section-description">Systematic approach to bringing your dream home to life in Abuja.</p></div><div class="steps-grid"><div class="step-card"><div class="step-number">01</div><div class="step-icon"><i class="fas fa-comments"></i></div><h3>Consultation</h3><p>Initial meeting to understand your vision, lifestyle, and budget.</p></div><div class="step-card"><div class="step-number">02</div><div class="step-icon"><i class="fas fa-pencil-ruler"></i></div><h3>Design & Planning</h3><p>Detailed architectural designs, 3D renderings, and technical drawings.</p></div><div class="step-card"><div class="step-number">03</div><div class="step-icon"><i class="fas fa-hard-hat"></i></div><h3>Construction</h3><p>Skilled craftsmen bring design to life with premium materials.</p></div><div class="step-card"><div class="step-number">04</div><div class="step-icon"><i class="fas fa-home"></i></div><h3>Final Walkthrough</h3><p>Ensuring every detail meets uncompromising standards.</p></div></div></div></section>
+
+    <!-- FEATURED PROJECTS SLIDER - 3 BIGGER IMAGES, TOUCH SMOOTH SCROLL, ARROWS HIDDEN ON DESKTOP -->
+    <section class="featured-projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Iconic Creations</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">Premium residential masterpieces across Abuja's finest districts.</p>
+            </div>
+            <div class="projects-slider-container">
+                <div class="projects-slider-wrapper">
+                    <div class="projects-slider" id="projectsSlider">
+                        <div class="project-slide"><img src="featured-project1.jpg" alt="Maitama Hillside Villa"></div>
+                        <div class="project-slide"><img src="featured-project2.jpg" alt="Asokoro Presidential Estate"></div>
+                        <div class="project-slide"><img src="featured-project3.jpg" alt="Kado Estate Villa"></div>
+                    </div>
+                </div>
+                <div class="projects-navigation">
+                    <button class="projects-arrow" id="prevProject"><i class="fas fa-arrow-left"></i></button>
+                    <div class="projects-dots" id="projectsDots"></div>
+                    <button class="projects-arrow" id="nextProject"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="project-cta"><div class="container"><h2>Ready to Start Your Abuja Project?</h2><p>Let's discuss your vision and create a home that reflects your lifestyle in Nigeria's capital.</p><a href="index.html#contact" class="btn btn-primary">Schedule Consultation</a></div></section>
+
+    <!-- Consultation Popup (legacy) -->
+    <div class="consultation-overlay" id="consultationOverlay"><div class="consultation-popup"><button class="close-popup" id="closeConsultationBtn"><i class="fas fa-times"></i></button><h3>Schedule Your Consultation</h3><form id="consultationForm"><div class="form-group"><input type="text" name="name" placeholder="Your Full Name" required></div><div class="form-group"><input type="email" name="email" placeholder="Email Address" required></div><div class="form-group"><input type="tel" name="phone" placeholder="Phone Number" required></div><div class="form-group"><select name="projectType" required><option value="" disabled selected>Project Type</option><option value="new">New Construction</option><option value="renovation">Renovation</option></select></div><div class="form-group"><textarea name="message" rows="4" placeholder="Tell us about your project vision..." required></textarea></div><button type="submit" class="btn btn-primary">Send Request</button><div id="consultationFormStatus" class="form-status"></div></form></div></div>
+
+    <footer><div class="container"><div class="footer-container"><div class="footer-about"><div class="footer-logo">saas<span>construct</span></div><p>Crafting exceptional residences across Abuja that stand the test of time.</p></div><div class="footer-links"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="residences.html">Residences</a></li><li><a href="services.html">Services</a></li><li><a href="index.html#philosophy">Philosophy</a></li><li><a href="projects.html">Projects</a></li><li><a href="index.html#contact">Contact</a></li></ul></div><div class="footer-services"><h4>Our Services</h4><ul><li><a href="services.html#agricultural-design">Agricultural Design</a></li><li><a href="services.html#building-construction">Building Construction</a></li><li><a href="services.html#general-supervision">General Supervision</a></li><li><a href="services.html#renovation-restoration">Renovation & Restoration</a></li></ul><div class="footer-calendar" id="liveCalendar"><div class="calendar-header">📍 Abuja Office</div><div class="calendar-date" id="calDate"></div><div class="calendar-day" id="calDay"></div><div class="calendar-time" id="calTime"></div></div></div></div><div class="footer-bottom"><p>&copy; 2025 saas construct. All rights reserved. | Abuja, Nigeria</p></div></div></footer>
+
+    <script>
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobileMenuBtn'), navMenu = document.getElementById('navMenu');
+        if(mobileBtn) mobileBtn.addEventListener('click',()=>{navMenu.classList.toggle('show'); const icon=mobileBtn.querySelector('i'); icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times');});
+        document.querySelectorAll('nav ul li a').forEach(link=>{link.addEventListener('click',()=>{navMenu.classList.remove('show'); if(mobileBtn&&mobileBtn.querySelector('i')){mobileBtn.querySelector('i').classList.add('fa-bars');mobileBtn.querySelector('i').classList.remove('fa-times');}});});
+
+        // Before & after timer
+        const before=document.getElementById('baBefore1'),after=document.getElementById('baAfter1'),timerText=document.getElementById('timerText1'),progressBar=document.getElementById('baProgress1');
+        let secondsLeft=6, showingBefore=true;
+        function updateTimer(){ if(timerText) timerText.textContent = `Next in ${secondsLeft}s`; const percent = ((6-secondsLeft)/6)*100; if(progressBar) progressBar.style.width = percent+'%'; }
+        function toggleImage(){ showingBefore ? (before.classList.remove('active'), after.classList.add('active')) : (after.classList.remove('active'), before.classList.add('active')); showingBefore = !showingBefore; }
+        setInterval(()=>{ secondsLeft--; updateTimer(); if(secondsLeft <= 0){ secondsLeft = 6; toggleImage(); updateTimer(); } }, 1000);
+
+        // SLIDER: 3 slides, bigger images, touch & drag support, arrows hidden on desktop via CSS
+        const slider = document.getElementById('projectsSlider');
+        const slides = document.querySelectorAll('.project-slide');
+        const prevBtn = document.getElementById('prevProject'), nextBtn = document.getElementById('nextProject');
+        const dotsContainer = document.getElementById('projectsDots');
+        let currentIdx = 0;
+        const totalSlides = slides.length;
+        let startX = 0, isDragging = false, startTime = 0;
+
+        function updateSliderTransform(instant = false) {
+            if(slider) {
+                const translateVal = -currentIdx * 100;
+                if(instant) slider.style.transition = 'none';
+                slider.style.transform = `translateX(${translateVal}%)`;
+                if(instant) setTimeout(()=> slider.style.transition = 'transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1)', 20);
+            }
+            updateDotsAndButtons();
+        }
+        function updateDotsAndButtons() {
+            document.querySelectorAll('.projects-dot').forEach((dot, i)=> dot.classList.toggle('active', i === currentIdx));
+            if(prevBtn && nextBtn) { 
+                prevBtn.disabled = currentIdx === 0; 
+                nextBtn.disabled = currentIdx === totalSlides-1; 
+            }
+        }
+        function buildDots() {
+            if(dotsContainer) {
+                dotsContainer.innerHTML = '';
+                for(let i=0; i<totalSlides; i++) {
+                    const dot = document.createElement('button');
+                    dot.classList.add('projects-dot');
+                    if(i===currentIdx) dot.classList.add('active');
+                    dot.addEventListener('click', ()=>{ currentIdx = i; updateSliderTransform(); });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+        }
+        function nextSlide() { if(currentIdx < totalSlides-1) { currentIdx++; updateSliderTransform(); } }
+        function prevSlide() { if(currentIdx > 0) { currentIdx--; updateSliderTransform(); } }
+        
+        // Touch / Mouse drag for smooth mobile scroll
+        function handleDragStart(e) {
+            if(slider) {
+                isDragging = true;
+                startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+                startTime = Date.now();
+                slider.style.transition = 'none';
+                slider.classList.add('dragging');
+                e.preventDefault();
+            }
+        }
+        function handleDragMove(e) {
+            if(!isDragging || !slider) return;
+            const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            const diff = currentX - startX;
+            const percentDrag = (diff / slider.parentElement.clientWidth) * 100;
+            let newTransform = -currentIdx * 100 + percentDrag;
+            slider.style.transform = `translateX(${newTransform}%)`;
+        }
+        function handleDragEnd(e) {
+            if(!isDragging || !slider) return;
+            isDragging = false;
+            slider.classList.remove('dragging');
+            const endX = e.type.includes('mouse') ? e.pageX : (e.changedTouches ? e.changedTouches[0].clientX : startX);
+            const diff = endX - startX;
+            const threshold = 50;
+            const timeDiff = Date.now() - startTime;
+            const velocity = Math.abs(diff) / Math.max(timeDiff, 1);
+            if(Math.abs(diff) > threshold || velocity > 0.3) {
+                if(diff > 0 && currentIdx > 0) currentIdx--;
+                else if(diff < 0 && currentIdx < totalSlides-1) currentIdx++;
+            }
+            updateSliderTransform();
+            slider.style.transition = 'transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+        }
+        
+        if(slider && slides.length) {
+            buildDots();
+            updateSliderTransform();
+            if(prevBtn) prevBtn.addEventListener('click', prevSlide);
+            if(nextBtn) nextBtn.addEventListener('click', nextSlide);
+            // Touch + mouse events for smooth dragging (primarily for mobile but works on desktop too)
+            slider.addEventListener('mousedown', handleDragStart);
+            window.addEventListener('mousemove', handleDragMove);
+            window.addEventListener('mouseup', handleDragEnd);
+            slider.addEventListener('touchstart', handleDragStart, {passive: false});
+            slider.addEventListener('touchmove', handleDragMove, {passive: false});
+            slider.addEventListener('touchend', handleDragEnd);
+        }
+
+        // Intersection Observer for Steps
+        const stepCards = document.querySelectorAll('.step-card');
+        const stepObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('revealed'); stepObserver.unobserve(entry.target); } }); }, { threshold: 0.2 });
+        stepCards.forEach(card => stepObserver.observe(card));
+
+        // Live Calendar
+        function updateCalendar() { const now = new Date(); const dateEl = document.getElementById('calDate'), dayEl = document.getElementById('calDay'), timeEl = document.getElementById('calTime'); if(dateEl) dateEl.textContent = now.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }); if(dayEl) dayEl.textContent = now.toLocaleDateString('en-US', { weekday:'long' }); if(timeEl) timeEl.textContent = now.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:true }); }
+        updateCalendar(); setInterval(updateCalendar, 1000);
+        
+        // Popup handlers
+        const overlay = document.getElementById('consultationOverlay'), closeBtn = document.getElementById('closeConsultationBtn');
+        if(closeBtn) closeBtn.addEventListener('click', ()=>{ overlay.classList.remove('active'); document.body.style.overflow = ''; if(document.getElementById('consultationFormStatus')) document.getElementById('consultationFormStatus').style.display = 'none'; if(document.getElementById('consultationForm')) document.getElementById('consultationForm').reset(); });
+        if(overlay) overlay.addEventListener('click', (e)=>{ if(e.target === overlay) { overlay.classList.remove('active'); document.body.style.overflow = ''; if(document.getElementById('consultationFormStatus')) document.getElementById('consultationFormStatus').style.display = 'none'; if(document.getElementById('consultationForm')) document.getElementById('consultationForm').reset(); } });
+    </script>
+</body>
+</html>
